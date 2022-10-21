@@ -14,7 +14,7 @@ package Arithmetic;
  */
 import java.util.Scanner;
 public class Xes {
-    public static void main(String args[]){
+    public static void main(String[] args){
         Scanner imput = new Scanner(System.in);
         System.out.print("Enter a year: (e.g, 2012): ");
         int year = imput.nextInt();
@@ -22,11 +22,17 @@ public class Xes {
         int month = imput.nextInt();
         System.out.print("Enter the day of the month: ");
         int day = imput.nextInt();
-        int tempMonth = month;
-        switch (tempMonth){
-            case 1: month = 13; year -=1; break;
-            case 2: month = 14; year -=1; break;
+        switch (month) {
+            case 1 -> {
+                month = 13;
+                year -= 1;
+            }
+            case 2 -> {
+                month = 14;
+                year -= 1;
+            }
         }
+        System.out.println(month);
         int century = year / 100;
         int yearOfCentury = year % 100;
         int theDayIs = (day + 26 * (month + 1) / 10 + yearOfCentury + yearOfCentury / 4 + century / 4 + 5 * century) % 7;
